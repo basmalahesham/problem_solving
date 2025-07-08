@@ -1,0 +1,24 @@
+//Write a function named setAlarm/set_alarm/set-alarm/setalarm (depending on language)
+// which receives two parameters. The first parameter, employed, is true whenever you are employed
+// and the second parameter, vacation is true whenever you are on vacation.
+// The function should return true if you are employed and not on vacation
+// (because these are the circumstances under which you need to set an alarm). It should return false otherwise.
+// Examples:
+// employed | vacation
+// true     | true     => false
+// true     | false    => true
+// false    | true     => false
+// false    | false    => false
+import 'package:test/test.dart';
+void main() {
+  print(setAlarm(false, false));
+  group("basic tests", () {
+    test("setAlarm(true, true)", () => expect(setAlarm(true, true), equals(false)));
+    test("setAlarm(false, true)", () => expect(setAlarm(false, true), equals(false)));
+    test("setAlarm(true, false)", () => expect(setAlarm(true, false), equals(true)));
+    test("setAlarm(false, false)", () => expect(setAlarm(false, false), equals(false)));
+  });
+}
+bool setAlarm(bool employed,bool vacation){
+  return employed && !vacation;
+}
